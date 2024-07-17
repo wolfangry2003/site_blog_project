@@ -1,0 +1,22 @@
+#menu {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    left: 0;
+    padding: 5px 20px;
+    background: linear-gradient(to right top, #a8a8a8, #a8a8a8);
+}
+
+.text-end{
+    width: 1%;
+    height: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 5px 20px;
+    top: 0;
+    right: 50rem;
+}
