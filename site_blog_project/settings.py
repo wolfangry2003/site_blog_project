@@ -43,8 +43,15 @@ INSTALLED_APPS = [
     'blog',
     'jalali_date',
     'django_jalali',
+    'accounts',
+    'crispy_forms',
+    "crispy_bootstrap4",
 
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # default settings (optional)
 JALALI_DATE_DEFAULTS = {
@@ -91,8 +98,7 @@ ROOT_URLCONF = 'site_blog_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -148,9 +154,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-import locale
-
-locale.setlocale(locale.LC_ALL, "Persian_Iran.UTF-8")
 
 TIME_ZONE = 'Asia/Tehran'
 
