@@ -3,7 +3,8 @@ from jalali_date import date2jalali
 
 class Blog(models.Model):
     title = models.CharField(max_length=200)
-    description = models.TextField()
+    excerpt = models.TextField()
+    body = models.TextField()
     author = models.ForeignKey('accounts.CustomUser', on_delete=models.CASCADE)
     date = models.DateTimeField()
     photo = models.ImageField(upload_to='photo/%Y/%m/%d')
