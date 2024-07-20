@@ -5,9 +5,7 @@ from .models import Blog
 from .forms import PostForm, CommentForm
 from django.urls import reverse_lazy, reverse
 from django.core.paginator import Paginator
-from django.shortcuts import render
 from django.views.generic.detail import SingleObjectMixin
-
 
 def all_blogs(request):
     blog_count = Blog.objects.count()
@@ -17,6 +15,24 @@ def all_blogs(request):
 def detail(request, blog_id):
     blog = get_object_or_404(Blog, pk=blog_id)
     return render(request, 'blog/detail.html', {'blog': blog})
+
+class HomeView(View):
+    #model = Blog
+    template_name = 'home.html'
+    paginate_by = 1
+
+    def get(self, request):
+        posts = Blog.objects.all()
+        paginator = Paginator(posts, self.paginate_by)
+
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+
+        context = {
+            'post_list': page_obj
+        }
+
+        return render(request, self.template_name, context)
 
 
 class CommentGet(DetailView):
